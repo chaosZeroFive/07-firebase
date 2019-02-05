@@ -16,34 +16,98 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span>
+                    <a class="nav-link active" href="#">Train Scheduler <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://chaoszerofive.github.io/about.html">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> More </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://chaoszerofive.github.io/experience.html">Experience</a>
-                        <a class="dropdown-item" href="https://chaoszerofive.github.io/projects.html">Projects</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="https://chaoszerofive.github.io/contact.html">Contact</a>
-                    </div>
+                    <a class="nav-link" href="https://chaoszerofive.github.io/projects.html">Projects </a>
                 </li>
             </ul>
         </div>
     </nav>
-    
+    <br>
+    <div class="container" id="example1">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5>Current Train Schedule</h5>
+                        <div class="card-body border-dark">
+                            <table class="table" id="trainTable">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination City</th>
+                                        <th scope="col">Destination State</th>
+                                        <th scope="col">Destination Zip</th>
+                                        <th scope="col">Frequency (min)</th>
+                                        <th scope="col">Next Arrival</th>
+                                        <th scope="col">Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!--table text goes here-->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5>Add a Train</h5>
+                        <div class="card-body border-dark">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="trainName" placeholder="Train Name">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-3">
+                                        <input type="text" class="form-control" id="destZip" name="zip" placeholder="Zip Code">
+                                    </div>
+                                    <div class="form-group col-sm-5">
+                                        <input type="text" class="form-control" id="destCity" name="city" placeholder="City">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="text" class="form-control" id="destState" name="state" placeholder="State">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-3">
+                                        <input type="time" class="form-control" id="trainTime" min="00:00" max="23:59" placeholder="First Time">
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <input type="number" class="form-control" id="trainFreq" placeholder="Frequency (min)">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-error"></div>
+                    <div class="card-footer">
+                        <button class="btn-primary" type="submit" id="save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
     <div class="row">
         <div class="text-center col-lg-6 offset-lg-3">
-            <h4>Portfolio | Home</h4>
+            <h4>Portfolio | Train Scheduler</h4>
             <p>Copyright &copy; 2018 &middot; All Rights Reserved &middot; <a href="https://chaoszerofive.github.io/about.html" >Alton Carroll</a></p>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script src="assets/script/app.js"></script>
 </body>
 </html>
