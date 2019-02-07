@@ -60,8 +60,10 @@
             <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-header p-3">
-                        <h5>Add a Train</h5>
+                        
                         <div class="card-body border-dark">
+                            <h5 class="card-title">Add a Train </h5>
+                                <div class="card-subtitle mb-2 text-muted"></div>
                             <form>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="trainName" placeholder="Train Name">
@@ -71,24 +73,23 @@
                                         <input type="text" class="form-control" id="destZip" name="zip" placeholder="Zip Code">
                                     </div>
                                     <div class="form-group col-sm-5">
-                                        <input type="text" class="form-control" id="destCity" name="city" placeholder="City">
+                                        <input type="text" class="form-control" id="destCity" name="city" placeholder="City" readonly>
                                     </div>
                                     <div class="form-group col-sm-4">
-                                        <input type="text" class="form-control" id="destState" name="state" placeholder="State">
+                                        <input type="" class="form-control " id="destState" name="state" placeholder="State" readonly>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-sm-3">
-                                        <input type="time" class="form-control" id="trainTime" min="00:00" max="23:59" placeholder="First Time">
+                                    <div class="form-group col-sm-4">
+                                        <input type="time" class="form-control text-center" id="trainTime" min="00:00" max="23:59" placeholder="First Time">
                                     </div>
-                                    <div class="form-group col-sm-3">
-                                        <input type="number" class="form-control" id="trainFreq" placeholder="Frequency (min)">
+                                    <div class="form-group col-sm-4">
+                                        <input type="number" class="form-control text-center" id="trainFreq" min="00" max="59" placeholder="Frequency (min)">
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="text-error"></div>
                     <div class="card-footer">
                         <button class="btn-primary" type="submit" id="save">Save</button>
                     </div>
@@ -103,10 +104,12 @@
             <p>Copyright &copy; 2018 &middot; All Rights Reserved &middot; <a href="https://chaoszerofive.github.io/about.html" >Alton Carroll</a></p>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script src="assets/script/app.js"></script>
 </body>

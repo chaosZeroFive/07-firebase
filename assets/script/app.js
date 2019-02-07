@@ -1,11 +1,13 @@
 // JavaScript Document
 $(document).ready(function(){
-    var now = moment();
-    console.log(now);
+    
     console.log('document.ready!');
 });
-
-// Initialize Firebase
+v/*ar now = moment().format('HH:mm');
+    $('.card-subtitle').html("Current Time: " + now);
+    console.log("Time Now: " + now);
+    console.log("Time add 30: " + moment().add(30, 'm').format('HHmm'));*/
+// firebase object
 var config = {
     apiKey: "AIzaSyA6n4g8rk6aexMRb7C-R0BjkWxDekDuBpA",
     authDomain: "train-scheduler-ef432.firebaseapp.com",
@@ -14,6 +16,8 @@ var config = {
     storageBucket: "train-scheduler-ef432.appspot.com",
     messagingSenderId: "741863754196"
 };
+
+//initialize firebase app
 firebase.initializeApp(config);
 
 var database = firebase.database();
@@ -22,9 +26,49 @@ var tName = $('#trainName').val().trim();
 var destZ = $('#destZip').val().trim();
 var destC = $('#destZip').val().trim();
 var destS = $('#destZip').val().trim();
-var tStart = $('#trainTime').val().trim();
-var tFreq = $('#trainFreq').val().trim();
+var tStart = $('#trainStart').val();
+var tStartH;
+var tStartM;
+var tFreq = 0;
+var tNext;
 
+var tTime = moment(tStart, 'HH:mm').add(tFreq, 'minutes');
+
+$('#trainName').on(function(){
+    tName = $(this).val();
+})
+
+
+$('#trainTime').on('change', function(){
+    tStart = $(this).val();
+    tStartH = parseInt(tStart.substring(0, 2));
+    tStartM = parseInt(tStart.substring(3, 5));
+});
+
+$('#trainFreq').on('change', function(){
+    tFreq = $(this).val();
+    //trainTime();
+});
+
+/*function trainTime(){
+    var m = parseInt(tStartM) + parseInt(tFreq);
+    var h = parseInt(tStartH);
+    if (m < 60){
+        tNext = h + ":" + m;
+    }
+    else if (m >= 60){
+        
+    }
+    
+    console.log("frequency: " + tFreq);
+    console.log("start: " + tStart);
+    console.log(tTime);
+    console.log("start hour: " + tStartH);
+    console.log("start minute: " + tStartM);
+    console.log("tStartM + tFreq " + tNext);
+}*/
+
+//save new train to database
 $('#save').on('click', function(){
     event.preventDefault();
     
@@ -34,7 +78,8 @@ $('#save').on('click', function(){
         city: destC,
         state: destS,
         start: tStart,
-        frequency: tFreq
+        frequency: tFreq,
+        //nextTrain: tNext,
     };
     
     database.ref().push(newTrain);
@@ -44,16 +89,18 @@ $('#save').on('click', function(){
     console.log('City: ' + newTrain.city);
     console.log('State: ' + newTrain.state);
     console.log('Start Time: ' + newTrain.start);
-    console.log('Frequency: ' + newTrain.frequency);
+    //console.log('Frequency: ' + newTrain.frequency);
+    //console.log('Next Train: ' + newTrain.nextTrain);
+    alert("New Train Added!");
     
-    console.log("New Train Added!")
     
-    $('#trainName').val('');
+    
+    /*$('#trainName').val('');
     $('#destZip').val('');
     $('#destZip').val('');
     $('#destZip').val('');
     $('#trainTime').val('');
-    $('#trainFreq').val('');
+    $('#trainFreq').val('');*/
 });
 
 database.ref().on('child_added', function(childSnapshot){
